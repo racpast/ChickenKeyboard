@@ -1,0 +1,64 @@
+﻿<Window x:Class="ChickenKeyboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChickenKeyboard"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Title="鸡键盘" Height="550" Width="240" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+    <StackPanel>
+        <TextBlock MouseLeave="description_MouseLeave"  MouseMove="description_MouseMove" x:Name="description" Text="ikun，请在下面开启或关闭某个按键的音效。" TextWrapping="Wrap" Margin="15,15,15,-5" FontSize="16" FontWeight="Bold" />
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="C 键" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBc" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="T 键" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBt" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="R 键" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBr" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="L 键" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBl" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Ctrl 键" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBctrl" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="J 键" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBj" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Text="N 键" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Height="Auto" Width="Auto" FontSize="16"/>
+            <ToggleButton x:Name="TBn" Click="ToggleButtons_Click" Height="30" Width="50" IsChecked="True" Style="{StaticResource ToggleButtonSwitch}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        <hc:NotifyIcon Click="SetWindowVisible" Text="鸡键盘" Token="ChickenKeyboard" Visibility="Visible">
+            <hc:NotifyIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="SetWindowVisible" Header="打开设置窗口"/>
+                    <MenuItem Click="ShutdownApp" Header="退出"/>
+                </ContextMenu>
+            </hc:NotifyIcon.ContextMenu>
+        </hc:NotifyIcon>
+        <TextBlock TextWrapping="Wrap" Margin="15,-5,15,0" FontSize="13">
+            <Run>开源项目地址：</Run>
+            <LineBreak />
+            <Run>https://github.com/racpast/ChickenKeyboard</Run>
+        </TextBlock>
+    </StackPanel>
+</Window>
